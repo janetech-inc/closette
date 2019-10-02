@@ -1,0 +1,97 @@
+
+/* Desktop Page Header */
+h1 {
+  font-family: "miller-display";
+  font-weight: 100;
+  font-size: 36px;
+  line-height: 36px;
+  color: #1E1E1E;
+  letter-spacing: inherit;
+  text-transform: capitalize;
+  text-decoration: none;
+  margin: 0px;
+}
+
+/* Module Header */
+h2 {
+  font-family: "miller-display";
+  font-weight: 100;
+  font-size: 25px;
+  line-height: 28px;
+  color: #1E1E1E;
+  letter-spacing: inherit;
+  text-transform: capitalize;
+  text-decoration: none;
+  margin: 0px;
+}
+
+/* Line Sheet Product Header */
+h3 {
+  font-family: "miller-display";
+  font-size: 18px;
+  line-height: 28px;
+  color: #1E1E1E;
+  letter-spacing: inherit;
+  text-transform: capitalize;
+  text-decoration: none;
+  margin: 0px;
+}
+
+/* Line Sheets, List etc. */
+p {
+  /* font-family: Helvetica Neue; */
+  font-size: 12px;
+  line-height: 20px;
+  color: #1E1E1E;
+  margin: 0px;
+  letter-spacing: inherit;
+  text-decoration: none;
+}
+
+/* Designer Name, Product Description */
+.text-style-01 {
+  /* font-family: Helvetica Neue; */
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #1E1E1E;
+  letter-spacing: inherit;
+}
+
+/* Product Details */
+.text-style-02 {
+  /* font-family: Helvetica Neue; */
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: normal;
+  color: #1E1E1E;
+  letter-spacing: inherit;
+}
+
+/* Line items, PO Summary */
+.text-style-03 {
+  /* font-family: Helvetica Neue; */
+  font-size: 12px;
+  line-height: 30px;
+  font-weight: normal;
+  color: #1E1E1E;
+  letter-spacing: inherit;
+}
+
+/* Sold Out etc. */
+.inactive-text {
+  color: #BEBEBE;
+  cursor: not-allowed;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

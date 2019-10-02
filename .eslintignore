@@ -1,0 +1,7 @@
+node_modules/*
+app/.next/*
+.circleci/*
+build/*
+deploy/*
+terraforms/*
+config/*

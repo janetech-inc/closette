@@ -1,0 +1,55 @@
+doctype html
+body(style="width: 100%;")
+  table(width="600px" align="center")
+    tr(valign='top' style='height: 101px; vertical-align: middle; text-align: center;')
+      td(align='center')
+        img(src='https://res.cloudinary.com/cxn-fashion/image/upload/v1566416680/CXN/CXN_LOGO_BLK_baw4bj.png' style='height: 53px; width: 150px;')
+        div(style='margin: 10px 0px 10px 0px; background-color: #0000001c; height: 1px')
+    tr(valign='top')
+      td(style='background-color: #FFFFFF; padding: 0 2%;')
+        div(style='color: #000; font-family: Georgia; font-size: 14px;') Hi #{firstname}, thank you for your order request with theCxn.
+        p(style='color: #000; font-family: Georgia; font-size: 14px;')
+          | Please find line sheet details for the order request 
+          span(style="color: #15c") ##{orderNumber} 
+          | within this email. Client services will be in touch with you shortly to confirm your order request and make payment and shipping arrangements. 
+        p(style='color: #000; font-family: Georgia; font-size: 14px;') For immediate inquiries, please contact 
+          span(style="color: #15c") orders@cxnfashion.com
+        div(style='margin: 20px 0px 10px 0px; background-color: #0000001c; height: 1px')
+        div(style='margin: 25px 0px; color: #000;')
+          div(style='font-weight: bold; font-size: 14px;') Order Placed By
+          div #{email}
+        div(style='margin: 25px 0px; color: #000; font-size: 14px;')
+          div(style='font-weight: bold;') Order Date
+          div #{orderDate}
+        div(style='margin: 25px 0px; color: #000; font-size: 14px;')
+          div(style='font-weight: bold;') Estimated Delivery By
+          div #{deliveryWindow}
+        div(style='width: 100%; color: #000; font-size: 15px; font-family: Arial-BoldMT; font-weight: bold;')
+          table(width="100%" border="0" cellspacing="0" cellpadding="0")
+            tr
+              td(align="left" style="width: 50%")
+                span Your Order Details
+              td(align="right" style="width: 50%")
+                span Order Total: $#{orderTotal}
+          
+        div(style='margin: 15px 0px 20px 0px; background-color: #0000001c; height: 1px')
+        table(style='width: 100%;')
+          each product, key in products
+            tr
+              td(valign='top' style='padding-right: 5px; width: 20%;')
+                img.image(src=product.image_url  style='width: auto; height:175px; border: 1px solid #f6f6f6')
+              td(valign='top' align='left')
+                div(style='color: #000; font-size: 14px;') PID: #{product.vendor_product_id}
+                div(style='color: #000; font-size: 14px;') Whole Sale Price: $#{product.whole_sale_price}
+                each quantity, sizeKey in product.sizes
+                  div(style='color: #000; font-size: 14px;')
+                    | #{sizeKey} (#{quantity})
+              td(valign='top' align='right')
+                span(style='color: #000; font-family: Arial-BoldMT; font-size: 13px; font-weight: bold; letter-spacing: 0px; text-align: right;') Product Sum: $#{product.product_price_sum}
+        div(style='margin: 10px 0px 10px 0px; background-color: #0000001c; height: 1px')
+        div(style='float: right; padding-bottom: 20px; height: 30px; color: #000; font-size: 16px; font-family: Arial-BoldMT; font-weight: bold; text-align: right; letter-spacing: 0px; line-height: 23px;') Order Total: $#{orderTotal}
+    tr(valign='top' style='height: 64px; vertical-align: middle; text-align: center;')
+      td(align='center')
+        div(style='height: 30px; color: #15c; font-size: 16px; font-family: ArialMT; text-align: center; letter-spacing: 0px; line-height: 23px;') www.cxnfashion.com
+        br
+        div(style="color: #A9B3BC;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;") Address: 135 W 20th St #602, New York, NY 10011
