@@ -1,4 +1,4 @@
-const withCSS = require('@zeit/next-css');
+const withSass = require("@zeit/next-sass");
 const { ENV_VARS } = require(`./config/environments/${process.env.APP_ENV || 'development'}`);
 
 const config = {
@@ -12,4 +12,4 @@ const config = {
   }
 };
 
-module.exports = withCSS(config);
+module.exports = withSass();

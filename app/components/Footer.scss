@@ -1,0 +1,22 @@
+@import "./global-styles/theme/theme";
+
+.Footer {
+  background: black;
+  color: $footer-font-color;
+  width: 100%;
+  margin: 0 auto;
+
+  .link-container {
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    
+    @media only screen and (max-width: $mobileL) {
+      flex-direction: column;
+    }
+
+    .link {
+      margin: 0 10px;
+    }
+  }
+}
