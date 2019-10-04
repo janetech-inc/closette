@@ -1,5 +1,3 @@
-
-
 const VariantSelector = props => (
   <div
     className="VariantSelector"
@@ -10,7 +8,7 @@ const VariantSelector = props => (
     <p>Select {props.option.name}</p>
     <div className="options">
       {props.option.values.map((value) => (
-        <span className="value" key={`${props.option.name}-${value.value}`}>{value.value}</span>
+        <button onClick={() => props.handleOptionChange(props.option.name, value.value)} className="value" value={value.value} key={`${props.option.name}-${value.value}`}>{value.value}</button>
       ))}
     </div>
 
@@ -27,6 +25,7 @@ const VariantSelector = props => (
 
       .value {
         border: 1px solid black;
+        margin: 0 5px;
         padding: 20px
       }
     `}</style>

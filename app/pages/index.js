@@ -4,8 +4,8 @@ import Products from './products';
 import Client from "shopify-buy";
 
 const client = Client.buildClient({
-  domain: "graphql.myshopify.com",
-  storefrontAccessToken: "dd4d4dc146542ba7763305d71d1b3d38"
+  domain: "closettedevelopment.myshopify.com",
+  storefrontAccessToken: "e4ef2d5a0c741c17791bb1dab8cfbb2b"
 });
 
 const Index = props => (
@@ -21,6 +21,8 @@ Index.getInitialProps = async() => {
     console.log("res: ", res)
     return res;
   }).catch(err => console.log(err));
+
+  console.log("products: ", products);
   
   return { products, client };
 }

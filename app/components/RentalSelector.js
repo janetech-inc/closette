@@ -8,7 +8,7 @@ const RentalSelector = () => (
     <p>Select Rental Period</p>
     <div className="rental-options">
       {rentalOptions.days.map(dayAmount => (
-        <span className="option" key={`${dayAmount}-days`}>{dayAmount}</span>
+        <span className="option" key={`${dayAmount}-days`}>{dayAmount} Days</span>
       ))}
       <span className="option">Buy</span>
 
@@ -26,6 +26,7 @@ const RentalSelector = () => (
 
         .option {
           border: 1px solid black;
+          margin: 0 5px;
           padding: 20px;
         }
       `}</style>

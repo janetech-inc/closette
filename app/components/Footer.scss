@@ -4,15 +4,17 @@
   background: black;
   color: $footer-font-color;
   width: 100%;
-  margin: 0 auto;
+  padding: 20px 0;
 
   .link-container {
     display: flex;
     flex-direction: row;
     text-transform: uppercase;
+    justify-content: space-around;
     
     @media only screen and (max-width: $mobileL) {
       flex-direction: column;
+      align-items: center;
     }
 
     .link {

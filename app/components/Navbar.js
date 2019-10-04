@@ -11,7 +11,6 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      {/* <Link href="/products"><a>Products</a></Link> */}
       <HamburgerWrapper>
         <HamburgerMenu
           theme={"dark"}
