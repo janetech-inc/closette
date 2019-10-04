@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from "react";
 import Client from "shopify-buy";
+import { useSwipeable, Swipeable } from 'react-swipeable'
 
 import Layout from '../../components/Layout';
 import VariantSelector from '../../components/VariantSelector';
@@ -27,6 +28,14 @@ export default function Product({ product }) {
     defaultSelectedOptions[selector.name] = selector.values[0].value;
   });
 
+  const [selectedOptions, setSelectedOptions] = useState(defaultSelectedOptions);
+  const [imageState, setImageState] = useState({
+    currentImage: 0,
+    imageCount: product.images.length
+  });
+
+  console.log("current image state: ", imageState);
+
   function handleOptionChange(optionName, optionValue) {
     console.log("state: ", selectedOptions);
     let updatedOption = {};
@@ -38,11 +47,22 @@ export default function Product({ product }) {
     });
   }
 
-  const [selectedOptions, setSelectedOptions] = useState(defaultSelectedOptions);
+  function handleImageSwipe(number) {
+    let updatedImage = {};
+    updatedImage["currentImage"] = imageState.currentImage + number;
+    setImageState((prevState) => {
+      return {...prevState, ...updatedImage};
+    });
+  }
+  
   return (
     <Layout>
       <div className="product">
-        <img src={product.images[0].src} alt={`${product.title} product shot`}/>
+      <Swipeable 
+        onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
+        onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
+        <img src={product.images[imageState.currentImage].src} alt={`${product.title} product shot`}/>
+      </Swipeable>
       
         <div className="details">
           <p className="vendor">{product.vendor}</p>
