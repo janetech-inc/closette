@@ -6,6 +6,7 @@ import { useSwipeable, Swipeable } from 'react-swipeable'
 import Layout from '../../components/Layout';
 import VariantSelector from '../../components/VariantSelector';
 import RentalSelector from '../../components/RentalSelector';
+import RentalDateSelector from '../../components/RentalDateSelector';
 import ProgressBar from '../../components/ProgressBar';
 
 const client = Client.buildClient({
@@ -76,6 +77,7 @@ export default function Product({ product }) {
         {variantSelectors}
 
         <RentalSelector />
+        <RentalDateSelector/>
       </div>
 
       <style jsx>{`
