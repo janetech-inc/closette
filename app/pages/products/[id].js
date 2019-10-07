@@ -6,6 +6,7 @@ import { useSwipeable, Swipeable } from 'react-swipeable'
 import Layout from '../../components/Layout';
 import VariantSelector from '../../components/VariantSelector';
 import RentalSelector from '../../components/RentalSelector';
+import ProgressBar from '../../components/ProgressBar';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
@@ -63,6 +64,8 @@ export default function Product({ product }) {
         onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
         <img src={product.images[imageState.currentImage].src} alt={`${product.title} product shot`}/>
       </Swipeable>
+
+      <ProgressBar percentage={((imageState.currentImage + 1)/imageState.imageCount) * 100}></ProgressBar>
       
         <div className="details">
           <p className="vendor">{product.vendor}</p>
