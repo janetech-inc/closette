@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import DatePicker from "react-datepicker";
 import { addDays, subDays, toDate, format } from 'date-fns'
 
@@ -7,6 +7,7 @@ import './RentalDateSelector.scss';
 const RentalDateSelector = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(addDays(startDate, 3));
+  const datePickerRef = useRef();
 
   return (
     <div className="RentalDateSelector">
@@ -23,9 +24,12 @@ const RentalDateSelector = () => {
           endDate={endDate}
           value={`${format(startDate, 'MM-dd')} - ${format(endDate, 'MM-dd')}`}
           dateFormat="MM-dd"
+          ref={datePickerRef}
         />
       </div>
-      <div className="right">+</div>
+      <div className="right">
+        <button onClick={() => datePickerRef.current.setOpen(true)}>+</button>
+      </div>
     </div>
   );
 }
