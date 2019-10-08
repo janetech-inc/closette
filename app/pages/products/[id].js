@@ -95,7 +95,7 @@ export default function Product({ product }) {
 
           <hr className="divider-line"></hr>
 
-          <Accordion allowMultipleOpen>
+          <Accordion>
             <div label='Stylist Notes' isOpen>
               <p>
                 Prabal Gurung's form-fitting midi dress is crafted from ribbed-knit fabric
