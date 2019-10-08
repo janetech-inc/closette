@@ -8,6 +8,7 @@ import VariantSelector from '../../components/VariantSelector';
 import RentalSelector from '../../components/RentalSelector';
 import RentalDateSelector from '../../components/RentalDateSelector';
 import ProgressBar from '../../components/ProgressBar';
+import Accordion from '../../components/Accordion';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
@@ -93,6 +94,31 @@ export default function Product({ product }) {
           <RentalDateSelector/>
 
           <hr className="divider-line"></hr>
+
+          <Accordion allowMultipleOpen>
+            <div label='Stylist Notes' isOpen>
+              <p>
+                Prabal Gurung's form-fitting midi dress is crafted from ribbed-knit fabric
+                that curves around the body so flatteringly. 
+                It's designed with striped color-blocking through its midi-length hem. 
+              </p>
+            </div>
+            <div label='Size & Fit'>
+              <p>
+                Size & Fit text to go here
+              </p>
+            </div>
+            <div label='Product Detail'>
+              <p>
+                Product detail text to go here
+              </p>
+            </div>
+            <div label='Share'>
+              <p>
+                Share text to go here
+              </p>
+            </div>
+          </Accordion>
         </div>
       </div>
 

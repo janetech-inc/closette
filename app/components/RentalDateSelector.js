@@ -28,7 +28,7 @@ const RentalDateSelector = () => {
         />
       </div>
       <div className="right">
-        <button onClick={() => datePickerRef.current.setOpen(true)}>+</button>
+        <button onClick={() => datePickerRef.current.setOpen(true)}>&#43;</button>
       </div>
     </div>
   );

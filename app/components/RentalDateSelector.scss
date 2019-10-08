@@ -6,8 +6,15 @@
   margin: 20px 0;
 
   input {
-    text-align: center;
     border: none;
+    color: transparent;
+    text-shadow: 0 0 0 black;
+    outline: none;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .left {
@@ -35,6 +42,7 @@
     button {
       background: none;
       border: none;
+      outline: none;
     }
   }
 
