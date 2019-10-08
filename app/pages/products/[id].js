@@ -91,6 +91,8 @@ export default function Product({ product }) {
             buySelected={buySelected}
           />
           <RentalDateSelector/>
+
+          <hr className="divider-line"></hr>
         </div>
       </div>
 
@@ -128,6 +130,13 @@ export default function Product({ product }) {
           max-width: 100%;
           max-height: 500px;
           padding: 20px 0;
+        }
+        
+        .divider-line {
+          height: 1px;
+          width: 100%;
+          background-color: black;
+          border: none;
         }
         
         @media only screen and (max-width: 425px) {
