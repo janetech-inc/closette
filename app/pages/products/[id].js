@@ -35,16 +35,13 @@ export default function Product({ product }) {
     currentImage: 0,
     imageCount: product.images.length
   });
-
-  console.log("current image state: ", imageState);
+  const [rentalPeriod, setRentalPeriod] = useState(4);
+  const [buySelected, setBuyOption] = useState(false);
 
   function handleOptionChange(optionName, optionValue) {
-    console.log("state: ", selectedOptions);
     let updatedOption = {};
     updatedOption[optionName] = optionValue;
-    // setSelectedOptions({...selectedOptions, ...updatedOption});
     setSelectedOptions((prevState) => {
-      console.log("prevState: ", prevState);
       return {...prevState, ...updatedOption};
     });
   }
@@ -55,6 +52,16 @@ export default function Product({ product }) {
     setImageState((prevState) => {
       return {...prevState, ...updatedImage};
     });
+  }
+
+  function handleRentalPeriodChange(length) {
+    setRentalPeriod(length);
+    setBuyOption(false);
+  }
+
+  function handleSelectOptionToBuy() {
+    setBuyOption((prevState) => !prevState);
+    setRentalPeriod(null);
   }
   
   return (
@@ -76,7 +83,12 @@ export default function Product({ product }) {
 
         {variantSelectors}
 
-        <RentalSelector />
+        <RentalSelector 
+          handleRentalPeriodChange={handleRentalPeriodChange} 
+          handleSelectOptionToBuy={handleSelectOptionToBuy} 
+          currentRentalPeriod={rentalPeriod} 
+          buySelected={buySelected}
+        />
         <RentalDateSelector/>
       </div>
 
