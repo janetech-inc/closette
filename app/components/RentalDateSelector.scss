@@ -1,8 +1,37 @@
 @import '~react-datepicker/dist/react-datepicker-cssmodules.css';
 
 .RentalDateSelector {
+  border: 1px solid black;
+  display: flex;  
+  margin: 20px 0;
+
   input {
     text-align: center;
   }
+
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px dashed blue;
+  }
+
+  .center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed green;
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px dashed red;
+  }
+
 }
 

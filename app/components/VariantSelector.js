@@ -3,7 +3,6 @@ const VariantSelector = props => (
     className="VariantSelector"
     name={props.option.name}
     key={props.option.name}
-    // onChange={props.handleOptionChange}
   >
     <p>Select {props.option.name}</p>
     <div className="options">
@@ -21,11 +20,11 @@ const VariantSelector = props => (
       .options {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
       }
 
       .value {
-        border: 1px solid black;
-        margin: 0 5px;
+        border: 1px solid grey;
         padding: 20px
       }
     `}</style>

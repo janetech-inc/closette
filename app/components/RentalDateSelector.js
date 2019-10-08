@@ -10,19 +10,22 @@ const RentalDateSelector = () => {
 
   return (
     <div className="RentalDateSelector">
-      <DatePicker
-        selected={startDate}
-        onChange={date => {
-          setStartDate(date)
-          setEndDate(addDays(date, 3))
-        }}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-        value={`${format(startDate, 'MM-dd')} - ${format(endDate, 'MM-dd')}`}
-        
-        dateFormat="MM-dd"
-      />
+      <div className="left"></div>
+      <div className="center">
+        <DatePicker
+          selected={startDate}
+          onChange={date => {
+            setStartDate(date)
+            setEndDate(addDays(date, 3))
+          }}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+          value={`${format(startDate, 'MM-dd')} - ${format(endDate, 'MM-dd')}`}
+          dateFormat="MM-dd"
+        />
+      </div>
+      <div className="right">+</div>
     </div>
   );
 }

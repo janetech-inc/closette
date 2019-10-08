@@ -66,14 +66,14 @@ export default function Product({ product }) {
   
   return (
     <Layout>
-      <div className="product">
-      <Swipeable 
-        onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
-        onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
-        <img src={product.images[imageState.currentImage].src} alt={`${product.title} product shot`}/>
-      </Swipeable>
+      <div className="product-details">
+        <Swipeable 
+          onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
+          onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
+          <img src={product.images[imageState.currentImage].src} alt={`${product.title} product shot`}/>
+        </Swipeable>
 
-      <ProgressBar percentage={((imageState.currentImage + 1)/imageState.imageCount) * 100}></ProgressBar>
+        <ProgressBar percentage={((imageState.currentImage + 1)/imageState.imageCount) * 100}></ProgressBar>
       
         <div className="details">
           <p className="vendor">{product.vendor}</p>
@@ -81,19 +81,21 @@ export default function Product({ product }) {
           <p className="price">${product.variants[0].price}</p>
         </div>
 
-        {variantSelectors}
+        <div className="flex-container">
+          {variantSelectors}
 
-        <RentalSelector 
-          handleRentalPeriodChange={handleRentalPeriodChange} 
-          handleSelectOptionToBuy={handleSelectOptionToBuy} 
-          currentRentalPeriod={rentalPeriod} 
-          buySelected={buySelected}
-        />
-        <RentalDateSelector/>
+          <RentalSelector 
+            handleRentalPeriodChange={handleRentalPeriodChange} 
+            handleSelectOptionToBuy={handleSelectOptionToBuy} 
+            currentRentalPeriod={rentalPeriod} 
+            buySelected={buySelected}
+          />
+          <RentalDateSelector/>
+        </div>
       </div>
 
       <style jsx>{`
-        .product {
+        .product-details {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -115,15 +117,26 @@ export default function Product({ product }) {
           margin: 10px 0;
         }
 
+        .flex-container {
+          display: flex;
+          flex-direction: column;
+          width: 40%;
+        }
+
         img {
           display: block;
           max-width: 100%;
           max-height: 500px;
+          padding: 20px 0;
         }
         
         @media only screen and (max-width: 425px) {
           img {
             width: 100%;
+          }
+
+          .flex-container {
+            width: 75%;
           }
         }
       `}</style>
