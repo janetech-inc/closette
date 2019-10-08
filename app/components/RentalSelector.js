@@ -1,5 +1,5 @@
 const rentalOptions = {
-  days: [4, 8],
+  days: [4, 10],
   buy: false
 }
 
