@@ -49,7 +49,7 @@ class Accordion extends React.Component {
     } = this;
 
     return (
-      <div style={{borderBottom: '1px solid black', margin: '10px 0'}}>
+      <div style={{borderBottom: '1px solid black', margin: '20px 0'}}>
         {children.map(child => (
           <AccordionSection
             isOpen={!!openSections[child.props.label]}

@@ -1,0 +1,17 @@
+.VariantSelector {
+  display: flex;
+  flex-direction: column;
+
+  .options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .value {
+      background: white;
+      border: 1px solid grey;
+      padding: 20px;
+      outline: none;
+    }
+  }
+}
