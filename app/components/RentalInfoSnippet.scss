@@ -1,0 +1,46 @@
+@import "./global-styles/theme/theme";
+
+.RentalInfoSnippet {
+  background: $secondary;
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+  height: 125px;
+  width: 100%;
+
+  .flex-container {
+    display: flex;
+    height: 70%;
+    width: 90%;
+
+    .text {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      p {
+        background: white;
+        padding: 0 15px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+
+    .divider-container {
+      background: white;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .divider-line {
+        border-left: 1px solid black;
+        height: 60%;
+      }
+    }
+  }
+
+}

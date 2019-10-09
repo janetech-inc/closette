@@ -9,6 +9,7 @@ import RentalSelector from '../../components/RentalSelector';
 import RentalDateSelector from '../../components/RentalDateSelector';
 import ProgressBar from '../../components/ProgressBar';
 import Accordion from '../../components/Accordion';
+import RentalInfoSnippet from '../../components/RentalInfoSnippet';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
@@ -120,6 +121,8 @@ export default function Product({ product }) {
             </div>
           </Accordion>
         </div>
+
+        <RentalInfoSnippet />
       </div>
 
       <style jsx>{`
