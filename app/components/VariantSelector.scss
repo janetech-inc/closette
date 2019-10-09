@@ -2,16 +2,20 @@
   display: flex;
   flex-direction: column;
 
-  .options {
+  .variant-options {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    .value {
+    .option {
       background: white;
       border: 1px solid grey;
       padding: 20px;
       outline: none;
+    }
+
+    .selected {
+      border: 1px solid black;
     }
   }
 }

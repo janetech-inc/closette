@@ -17,16 +17,6 @@ const client = Client.buildClient({
 });
 
 export default function Product({ product }) {
-  let variantSelectors = product.options.map((option) => {
-    return (
-      <VariantSelector
-        handleOptionChange={handleOptionChange}
-        key={option.id.toString()}
-        option={option}
-      />
-    );
-  });
-
   let defaultSelectedOptions = {};
   product.options.forEach((selector) => {
     defaultSelectedOptions[selector.name] = selector.values[0].value;
@@ -39,6 +29,17 @@ export default function Product({ product }) {
   });
   const [rentalPeriod, setRentalPeriod] = useState(4);
   const [buySelected, setBuyOption] = useState(false);
+
+  const variantSelectors = product.options.map((option) => {
+    return (
+      <VariantSelector
+        handleOptionChange={handleOptionChange}
+        key={option.id.toString()}
+        option={option}
+        selectedOptions={selectedOptions}
+      />
+    );
+  });
 
   function handleOptionChange(optionName, optionValue) {
     let updatedOption = {};

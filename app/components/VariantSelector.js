@@ -7,9 +7,17 @@ const VariantSelector = props => (
     key={props.option.name}
   >
     <p>Select {props.option.name}</p>
-    <div className="options">
+    <div className="variant-options">
       {props.option.values.map((value) => (
-        <button onClick={() => props.handleOptionChange(props.option.name, value.value)} className="value" value={value.value} key={`${props.option.name}-${value.value}`}>{value.value}</button>
+        <button 
+          onClick={() => props.handleOptionChange(props.option.name, value.value)} 
+          className="option" 
+          className={props.selectedOptions[props.option.name] == value.value ? 'option selected' : 'option'}
+          value={value.value} 
+          key={`${props.option.name}-${value.value}`}
+        >
+          {value.value}
+        </button>
       ))}
     </div>
   </div>
