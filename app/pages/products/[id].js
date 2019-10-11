@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from "react";
 import Client from "shopify-buy";
-import { useSwipeable, Swipeable } from 'react-swipeable'
+import { useSwipeable, Swipeable } from 'react-swipeable';
 
 import Layout from '../../components/Layout';
 import VariantSelector from '../../components/VariantSelector';
@@ -10,6 +10,7 @@ import RentalDateSelector from '../../components/RentalDateSelector';
 import ProgressBar from '../../components/ProgressBar';
 import Accordion from '../../components/Accordion';
 import RentalInfoSnippet from '../../components/RentalInfoSnippet';
+import ProductCarousel from '../../components/ProductCarousel';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
@@ -124,6 +125,7 @@ export default function Product({ product }) {
         </div>
 
         <RentalInfoSnippet />
+        <ProductCarousel />
       </div>
 
       <style jsx>{`
