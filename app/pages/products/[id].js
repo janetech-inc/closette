@@ -11,6 +11,7 @@ import ProgressBar from '../../components/ProgressBar';
 import Accordion from '../../components/Accordion';
 import RentalInfoSnippet from '../../components/RentalInfoSnippet';
 import ProductCarousel from '../../components/ProductCarousel';
+import Reviews from '../../components/Reviews';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
@@ -125,6 +126,7 @@ export default function Product({ product }) {
         </div>
 
         <RentalInfoSnippet />
+        <Reviews />
         <ProductCarousel />
       </div>
 

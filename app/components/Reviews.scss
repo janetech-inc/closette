@@ -1,0 +1,32 @@
+@import "./global-styles/theme/theme";
+
+.Reviews {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  width: 100%;
+
+  .reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+
+    .left-section {
+      display: flex;
+      align-items: center;
+
+      .stars {
+        color: goldenrod;
+        margin: 0 20px;
+      }
+    }
+    
+    a {
+      text-decoration: none;
+      &:visited { color: $primary; }
+      &:hover { color: $secondary; }
+      &:active { color: $primary; }
+    }
+  }
+}
