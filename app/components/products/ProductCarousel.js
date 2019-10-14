@@ -4,7 +4,7 @@ import Glide from '@glidejs/glide'
 
 import "./ProductCarousel.scss";
 import ProductCard from "./ProductCard";
-import ProgressBar from "../ProgressBar";
+import ProgressBar from "../utils/ProgressBar";
 // import { isMobile } from "../utils/helper_functions";
 
 class ProductCarousel extends React.Component {

@@ -7,7 +7,7 @@ import Layout from '../../components/Layout';
 import VariantSelector from '../../components/VariantSelector';
 import RentalSelector from '../../components/RentalSelector';
 import RentalDateSelector from '../../components/RentalDateSelector';
-import ProgressBar from '../../components/ProgressBar';
+import ProgressBar from '../../components/utils/ProgressBar';
 import Accordion from '../../components/utils/accordion/Accordion';
 import RentalInfoSnippet from '../../components/RentalInfoSnippet';
 import ProductCarousel from '../../components/products/ProductCarousel';
