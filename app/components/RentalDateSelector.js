@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DatePicker, { CalendarContainer } from "react-datepicker";
 import { addDays, subDays, toDate, format } from 'date-fns'
 
 import './RentalDateSelector.scss';
 import Modal from './utils/modal/Modal';
 
-const RentalDateSelector = () => {
+const RentalDateSelector = ({ rentalPeriod }) => {
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(addDays(startDate, 3));
+  const [endDate, setEndDate] = useState(addDays(startDate, rentalPeriod - 1));
 
   const modalProps = {
     ariaLabel: 'A label describing the Modal\'s current content',
@@ -16,13 +16,17 @@ const RentalDateSelector = () => {
 
   const DatePickerContainer = ({ className, children }) => {
     return (
-      <div style={{ padding: "16px", background: "#216ba5", color: "#fff", display: "flex", justifyContent: "center" }}>
+      <div style={{ padding: "16px", display: "flex", justifyContent: "center" }}>
         <CalendarContainer className={className}>
           <div style={{ position: "relative" }}>{children}</div>
         </CalendarContainer>
       </div>
     );
   };
+
+  useEffect(() => {
+    rentalPeriod && setEndDate(addDays(startDate, rentalPeriod - 1))
+  }, [rentalPeriod]);
 
   return (
     <div className="RentalDateSelector">
@@ -33,13 +37,14 @@ const RentalDateSelector = () => {
             selected={startDate}
             onChange={date => {
               setStartDate(date)
-              setEndDate(addDays(date, 3))
+              setEndDate(addDays(date, rentalPeriod - 1))
             }}
             selectsStart
             startDate={startDate}
             endDate={endDate}
             value={`${format(startDate, 'MM-dd')} - ${format(endDate, 'MM-dd')}`}
             dateFormat="MM-dd"
+            minDate={new Date()}
             calendarContainer={DatePickerContainer}
             inline
           />
@@ -51,12 +56,13 @@ const RentalDateSelector = () => {
             selected={startDate}
             onChange={date => {
               setStartDate(date)
-              setEndDate(addDays(date, 3))
+              setEndDate(addDays(date, rentalPeriod - 1))
             }}
             selectsStart
             startDate={startDate}
             endDate={endDate}
             dateFormat="MM-dd"
+            minDate={new Date()}
             calendarContainer={DatePickerContainer}
             inline
           />

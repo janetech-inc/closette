@@ -111,7 +111,7 @@ export default function Product({ product }) {
             currentRentalPeriod={rentalPeriod} 
             buySelected={buySelected}
           />
-          <RentalDateSelector/>
+          <RentalDateSelector rentalPeriod={rentalPeriod} />
 
           <hr className="divider-line"></hr>
 
