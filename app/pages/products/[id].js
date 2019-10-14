@@ -12,6 +12,7 @@ import Accordion from '../../components/Accordion';
 import RentalInfoSnippet from '../../components/RentalInfoSnippet';
 import ProductCarousel from '../../components/ProductCarousel';
 import Reviews from '../../components/Reviews';
+import Modal from '../../components/utils/modal/Modal';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
@@ -43,6 +44,19 @@ export default function Product({ product }) {
     );
   });
 
+  const modalContent = (
+    <div>
+      <p>Hello world Lorem ipsum dolor sit amet, <a href="#1">first link</a> consectetur adipiscing elit. Phasellus sagittis erat ut ex bibendum consequat. Morbi luctus ex ex, at varius purus <a href="#2">second link</a> vehicula consectetur. Curabitur a sapien a augue consequat rhoncus. Suspendisse commodo ullamcorper nibh quis blandit. Etiam viverra neque quis mauris efficitur, lobortis aliquam ex pharetra. Nam et ante ex. Sed gravida gravida ligula, non blandit nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer consectetur efficitur tempor. Nunc sollicitudin felis congue facilisis faucibus. Mauris faucibus sit amet ante eleifend dapibus.</p>
+    </div>
+  );  
+
+  const modalProps = {
+    triggerText: 'This is a button to trigger the Modal',
+    ariaLabel: 'A label describing the Modal\'s current content',
+    role: 'dialog'
+  };
+  
+
   function handleOptionChange(optionName, optionValue) {
     let updatedOption = {};
     updatedOption[optionName] = optionValue;
@@ -72,6 +86,8 @@ export default function Product({ product }) {
   return (
     <Layout>
       <div className="product-details">
+        <Modal {...modalProps}>{modalContent}</Modal>
+
         <Swipeable 
           onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
           onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
