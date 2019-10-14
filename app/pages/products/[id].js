@@ -5,11 +5,11 @@ import { useSwipeable, Swipeable } from 'react-swipeable';
 
 import Layout from '../../components/Layout';
 import VariantSelector from '../../components/VariantSelector';
-import RentalSelector from '../../components/RentalSelector';
-import RentalDateSelector from '../../components/RentalDateSelector';
+import RentalSelector from '../../components/rental/RentalSelector';
+import RentalDateSelector from '../../components/rental/RentalDateSelector';
 import ProgressBar from '../../components/utils/ProgressBar';
 import Accordion from '../../components/utils/accordion/Accordion';
-import RentalInfoSnippet from '../../components/RentalInfoSnippet';
+import RentalInfoSnippet from '../../components/rental/RentalInfoSnippet';
 import ProductCarousel from '../../components/products/ProductCarousel';
 import Reviews from '../../components/Reviews';
 

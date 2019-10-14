@@ -3,7 +3,7 @@ import DatePicker, { CalendarContainer } from "react-datepicker";
 import { addDays, subDays, toDate, format } from 'date-fns'
 
 import './RentalDateSelector.scss';
-import Modal from './utils/modal/Modal';
+import Modal from '../utils/modal/Modal';
 
 const RentalDateSelector = ({ rentalPeriod }) => {
   const [startDate, setStartDate] = useState(new Date());
