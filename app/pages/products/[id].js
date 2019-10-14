@@ -10,7 +10,7 @@ import RentalDateSelector from '../../components/RentalDateSelector';
 import ProgressBar from '../../components/ProgressBar';
 import Accordion from '../../components/utils/accordion/Accordion';
 import RentalInfoSnippet from '../../components/RentalInfoSnippet';
-import ProductCarousel from '../../components/ProductCarousel';
+import ProductCarousel from '../../components/products/ProductCarousel';
 import Reviews from '../../components/Reviews';
 
 const client = Client.buildClient({
