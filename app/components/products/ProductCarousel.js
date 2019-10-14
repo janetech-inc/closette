@@ -91,7 +91,7 @@ class ProductCarousel extends React.Component {
             "alt": null,
             "width": 925,
             "height": 617,
-            "src": "https://cdn.shopify.com/s/files/1/0278/8451/9517/products/black-bag-over-the-shoulder_925x_42f5fc8a-b06c-4ef9-8fea-3a6740a8c1e2.jpg?v=1570203482",
+            "src": "https://cdn.shopify.com/s/files/1/0278/8451/9517/products/Group_17-2.png?v=1571066103",
             "variant_ids": [],
             "admin_graphql_api_id": "gid://shopify/ProductImage/12956232220765"
         }
