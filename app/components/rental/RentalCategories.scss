@@ -1,0 +1,31 @@
+@import "../global-styles/theme/theme";
+
+.RentalCategories {
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 75%;
+
+  .list-header {
+    font-family: $rental-category-header;
+    font-size: 18px;
+  }
+
+  .categories-list {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    font-family: $core-font;
+    font-size: 12px;
+    list-style-type: none;
+    padding: 0;
+
+    .category {
+      border-bottom: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+  }
+  
+}

@@ -12,6 +12,7 @@ import Accordion from '../../components/utils/accordion/Accordion';
 import RentalInfoSnippet from '../../components/rental/RentalInfoSnippet';
 import ProductCarousel from '../../components/products/ProductCarousel';
 import Reviews from '../../components/Reviews';
+import RentalCategories from '../../components/rental/RentalCategories';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
@@ -128,6 +129,7 @@ export default function Product({ product }) {
         <RentalInfoSnippet />
         <Reviews />
         <ProductCarousel />
+        <RentalCategories />
       </div>
 
       <style jsx>{`
