@@ -190,13 +190,8 @@ export default function Product({ product }) {
 }
 
 Product.getInitialProps = async(context) => {
-  console.log(context)
-  console.log("query: ", context.query)
   const id = context.query.id;
-  console.log("id: ", id);
   const product = await client.product.fetch(id).then((res) => {
-    console.log("id: ", id)
-    console.log(res)
     return res;
   }).catch(err => console.log(err));
   

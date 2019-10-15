@@ -18,11 +18,8 @@ const Index = props => (
 
 Index.getInitialProps = async() => {
   const products = await client.product.fetchAll().then((res) => {
-    console.log("res: ", res)
     return res;
   }).catch(err => console.log(err));
-
-  console.log("products: ", products);
   
   return { products, client };
 }
