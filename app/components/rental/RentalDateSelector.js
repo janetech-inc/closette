@@ -49,6 +49,24 @@ const RentalDateSelector = ({ rentalPeriod }) => {
             calendarContainer={DatePickerContainer}
             inline
           />
+          <div className="legend">
+            <div className="section">
+              <div className="symbol" id="unavailable-symbol"></div>
+              <p className="text">Unavailable</p>
+            </div>
+            <div className="section">
+              <div className="symbol" id="at-your-door-symbol"></div>
+              <p className="text">At your door by 8pm</p>
+            </div>
+            <div className="section">
+              <div className="symbol" id="dates-selected-symbol"></div>
+              <p className="text">Dates Selected</p>
+            </div>
+            <div className="section">
+              <div className="symbol" id="drop-at-ups-symbol"></div>
+              <p className="text">Drop at UPS by noon</p>
+            </div>
+          </div>
         </Modal>
       </div>
       <div className="right">

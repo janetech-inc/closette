@@ -85,3 +85,42 @@
     color: $primary;
   }
 }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+
+  .section {
+    flex-basis: 50%;
+    display: flex;
+    padding: 10px 0;
+
+    .text {
+      font-family: $core-font;
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .symbol {
+      width: 20px;
+      height: 20px;
+      margin: 0 10px; 
+    }
+
+    #unavailable-symbol {
+      background: #E5E5E5;
+    }
+
+    #at-your-door-symbol {
+      background: linear-gradient(to bottom right, #BC8383 50%, $secondary 50%);
+    }
+
+    #dates-selected-symbol {
+      background: $secondary;
+    }
+
+    #drop-at-ups-symbol {
+      background: linear-gradient(to bottom right, $secondary 50%, #959595 50%);
+    }
+  }
+}
