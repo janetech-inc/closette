@@ -33,6 +33,7 @@ const RentalDateSelector = ({ rentalPeriod }) => {
       <div className="left"></div>
       <div className="center">
         <Modal {...modalProps} triggerText={`${format(startDate, 'MM-dd')} - ${format(endDate, 'MM-dd')}`}>
+          <p className="datepicker-header">Your Rental Dates</p>
           <DatePicker
             selected={startDate}
             onChange={date => {
