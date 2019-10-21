@@ -88,11 +88,7 @@ export const HiddenNavWrapper = styled(animated.div)`
   }
 `;
 
-export const HamburgerWrapper = styled(animated.div)`
-  position: absolute;
-  right: 0px;
-  top: 0px;
-`;
+export const HamburgerWrapper = styled(animated.div)``;
 
 export const HiddenNavContent = styled.div`
   display: flex;

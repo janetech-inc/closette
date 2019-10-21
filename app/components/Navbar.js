@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <HamburgerWrapper>
+      <HamburgerWrapper className="left">
         <HamburgerMenu
           theme={"dark"}
           activeHover={activeHover}
@@ -19,7 +19,8 @@ const Navbar = () => {
           callback={setActiveMenu}
         />
       </HamburgerWrapper>
-      <h1>CLOSETTE</h1>
+      <h1 className="center">CLOSETTE</h1>
+      <div className="right"></div>
     </div>
   )
 };

@@ -4,4 +4,27 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
+
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+  }
 }
