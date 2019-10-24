@@ -14,11 +14,11 @@ export const StyledNav = styled.nav`
   height: 58px;
   z-index: 99999;
   transition: all 0.5s ease;
+  background-color: white;
 
   ${props => {
     if (props.dark) {
       return `
-        background-color: rgba(255, 255, 255, ${props.activeHover ? 1 : 0});
         ${StyledLogo} {fill: #000000};
         ${Rack} {color: #000000};
         ${PageName} {color: #000000};
@@ -74,21 +74,34 @@ export const RackCount = styled.span`
 `;
 
 export const HiddenNavWrapper = styled(animated.div)`
-  background-color: ${props => props.theme.color.colorBlack01};
+  background-color: #FFFFFF;
   position: absolute;
   height: 100vh;
-  width: 100%;
+  width: 50%;
   max-width: 400px;
-  padding: 58px 0 88px ${props => props.theme.padding.paddingXL};
+  margin-top: 58px;
   top: 0;
   left: 0;
   z-index: 1;
   h1 {
-    color: ${props => props.theme.color.colorWhite01};
+    color: #000000;
   }
 `;
 
-export const HamburgerWrapper = styled(animated.div)``;
+export const LeftIcons = styled(animated.div)`
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const RightIcons = styled(animated.div)`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: bold;
+`;
 
 export const HiddenNavContent = styled.div`
   display: flex;
@@ -102,7 +115,8 @@ export const HiddenNavList = styled.ul`
   max-width: 400px;
   float: left;
   text-align: left;
-  margin-top: -5%;
+  padding: 0;
+  margin-top: 58px;
   li {
     display: block;
     a {
@@ -118,17 +132,17 @@ export const HiddenNavList = styled.ul`
   }
 `;
 
-export const SignInWrapper = styled.div`
-  display: block;
-  color: ${props => props.theme.color.colorWhite01};
-  text-align: left;
-  span {
-    padding: ${props => props.theme.padding.paddingMD};
-    &:first-of-type {
-      padding-left: 0;
-    }
-  }
-`;
+// export const SignInWrapper = styled.div`
+//   display: block;
+//   color: ${props => props.theme.color.colorWhite01};
+//   text-align: left;
+//   span {
+//     padding: ${props => props.theme.padding.paddingMD};
+//     &:first-of-type {
+//       padding-left: 0;
+//     }
+//   }
+// `;
 
 export const PageName = styled.span`
   position: absolute;
@@ -155,22 +169,22 @@ export const OpenNavOverlay = styled(({ activeMenu, ...rest }) => (
   transition-delay: ${props => (props.activeMenu ? "0s" : ".5s")};
 `;
 
-export const LinkWrapper = styled.div`
-  display: flex;
-  height: 58px;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-`;
+// export const LinkWrapper = styled.div`
+//   display: flex;
+//   height: 58px;
+//   align-items: center;
+//   justify-content: center;
+//   flex-wrap: nowrap;
+// `;
 
 export const LogoWrapper = styled.div`
-  position: relative;
   height: 100%;
-  flex-grow: 1;
-  flex-basis: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 `;
 
 export const Sides = styled.div`
-  flex-grow: 1;
-  flex-basis: 0;
 `;

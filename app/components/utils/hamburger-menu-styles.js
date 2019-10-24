@@ -41,27 +41,27 @@ export const HamburgerIcon = styled.span`
   ${props => {
     if (props.activeTheme === "dark") {
       return `
-        background-color: #000000;
+        background-color: ${props.activeMenuItem ? "transparent" : "#000000"};
         &:before, &:after {
-          background-color: ${props.activeMenuItem ? "#FFFFFF" : "#000000"};
+          background-color: #000000;
         }
       `;
     }
-    if (props.activeTheme === "light") {
-      return `
-        background-color: ${
-          props.activeMenuItem
-            ? "transparent"
-            : props.activeHover
-            ? "#000000"
-            : "#FFFFFF"
-        };
-        &:before, &:after {
-          background-color: ${
-            !props.activeHover || props.activeMenuItem ? "#FFFFFF" : "#000000"
-          };
-        }
-      `;
-    }
+    // if (props.activeTheme === "light") {
+    //   return `
+    //     background-color: ${
+    //       props.activeMenuItem
+    //         ? "transparent"
+    //         : props.activeHover
+    //         ? "#000000"
+    //         : "#FFFFFF"
+    //     };
+    //     &:before, &:after {
+    //       background-color: ${
+    //         !props.activeHover || props.activeMenuItem ? "#FFFFFF" : "#000000"
+    //       };
+    //     }
+    //   `;
+    // }
   }}
 `;
