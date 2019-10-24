@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import React, { Fragment } from "react";
 import Products from './products';
 
 import Client from "shopify-buy";
@@ -9,11 +9,9 @@ const client = Client.buildClient({
 });
 
 const Index = props => (
-  <Layout>
-    <div>
-      <Products products={props.products}/>
-    </div>
-  </Layout>
+  <Fragment>
+    <Products products={props.products}/>
+  </Fragment>
 );
 
 Index.getInitialProps = async() => {

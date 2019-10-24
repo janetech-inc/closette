@@ -13,19 +13,21 @@ import RentalInfoSnippet from '../../components/rental/RentalInfoSnippet';
 import ProductCarousel from '../../components/products/ProductCarousel';
 import Reviews from '../../components/Reviews';
 import RentalCategories from '../../components/rental/RentalCategories';
+import AddToBag from '../../components/checkout/AddToBag';
 
 const client = Client.buildClient({
   domain: "closettedevelopment.myshopify.com",
   storefrontAccessToken: "e4ef2d5a0c741c17791bb1dab8cfbb2b"
 });
 
-export default function Product({ product }) {
+export default function Product({ product, client, addVariantToCart }) {
   let defaultSelectedOptions = {};
   product.options.forEach((selector) => {
     defaultSelectedOptions[selector.name] = selector.values[0].value;
   });
 
   const [selectedOptions, setSelectedOptions] = useState(defaultSelectedOptions);
+  const [selectedVariant, setSelectedVariant] = useState(client.product.helpers.variantForOptions(product, defaultSelectedOptions));
   const [imageState, setImageState] = useState({
     currentImage: 0,
     imageCount: product.images.length
@@ -47,9 +49,12 @@ export default function Product({ product }) {
   function handleOptionChange(optionName, optionValue) {
     let updatedOption = {};
     updatedOption[optionName] = optionValue;
-    setSelectedOptions((prevState) => {
-      return {...prevState, ...updatedOption};
-    });
+
+    let updatedOptions = {...selectedOptions, ...updatedOption};
+    setSelectedOptions(updatedOptions);
+
+    const updatedVariant = client.product.helpers.variantForOptions(product, updatedOptions)
+    setSelectedVariant(updatedVariant)
   }
 
   function handleImageSwipe(number) {
@@ -71,67 +76,67 @@ export default function Product({ product }) {
   }
   
   return (
-    <Layout>
-      <div className="product-details">
-        <Swipeable 
-          onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
-          onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
-          <img src={product.images[imageState.currentImage].src} alt={`${product.title} product shot`}/>
-        </Swipeable>
+    <div className="product-details">
+      <Swipeable 
+        onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
+        onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
+        <img src={product.images[imageState.currentImage].src} alt={`${product.title} product shot`}/>
+      </Swipeable>
 
-        <ProgressBar percentage={((imageState.currentImage + 1)/imageState.imageCount) * 100}></ProgressBar>
-      
-        <div className="details">
-          <p className="vendor">{product.vendor}</p>
-          <p className="title">{product.title}</p>
-          <p className="price">${product.variants[0].price}</p>
-        </div>
-
-        <div className="flex-container">
-          {variantSelectors}
-
-          <RentalSelector 
-            handleRentalPeriodChange={handleRentalPeriodChange} 
-            handleSelectOptionToBuy={handleSelectOptionToBuy} 
-            currentRentalPeriod={rentalPeriod} 
-            buySelected={buySelected}
-          />
-          <RentalDateSelector rentalPeriod={rentalPeriod} />
-
-          <hr className="divider-line"></hr>
-
-          <Accordion>
-            <div label='Stylist Notes' isOpen>
-              <p>
-                Prabal Gurung's form-fitting midi dress is crafted from ribbed-knit fabric
-                that curves around the body so flatteringly. 
-                It's designed with striped color-blocking through its midi-length hem. 
-              </p>
-            </div>
-            <div label='Size & Fit'>
-              <p>
-                Size & Fit text to go here
-              </p>
-            </div>
-            <div label='Product Detail'>
-              <p>
-                Product detail text to go here
-              </p>
-            </div>
-            <div label='Share'>
-              <p>
-                Share text to go here
-              </p>
-            </div>
-          </Accordion>
-        </div>
-
-        <RentalInfoSnippet />
-        <Reviews />
-        <ProductCarousel />
-        <RentalCategories />
+      <ProgressBar percentage={((imageState.currentImage + 1)/imageState.imageCount) * 100}></ProgressBar>
+    
+      <div className="details">
+        <p className="vendor">{product.vendor}</p>
+        <p className="title">{product.title}</p>
+        <p className="price">${product.variants[0].price}</p>
       </div>
 
+      <div className="flex-container">
+        {variantSelectors}
+
+        <RentalSelector 
+          handleRentalPeriodChange={handleRentalPeriodChange} 
+          handleSelectOptionToBuy={handleSelectOptionToBuy} 
+          currentRentalPeriod={rentalPeriod} 
+          buySelected={buySelected}
+        />
+        <RentalDateSelector rentalPeriod={rentalPeriod} />
+
+        <hr className="divider-line"></hr>
+
+        <AddToBag variant={selectedVariant} addVariantToCart={addVariantToCart} />
+
+        <Accordion>
+          <div label='Stylist Notes' isOpen>
+            <p>
+              Prabal Gurung's form-fitting midi dress is crafted from ribbed-knit fabric
+              that curves around the body so flatteringly. 
+              It's designed with striped color-blocking through its midi-length hem. 
+            </p>
+          </div>
+          <div label='Size & Fit'>
+            <p>
+              Size & Fit text to go here
+            </p>
+          </div>
+          <div label='Product Detail'>
+            <p>
+              Product detail text to go here
+            </p>
+          </div>
+          <div label='Share'>
+            <p>
+              Share text to go here
+            </p>
+          </div>
+        </Accordion>
+      </div>
+
+      <RentalInfoSnippet />
+      <Reviews />
+      <ProductCarousel />
+      <RentalCategories />
+    
       <style jsx>{`
         .product-details {
           display: flex;
@@ -158,7 +163,7 @@ export default function Product({ product }) {
         .flex-container {
           display: flex;
           flex-direction: column;
-          width: 40%;
+          width: 75%;
         }
 
         img {
@@ -184,8 +189,20 @@ export default function Product({ product }) {
             width: 75%;
           }
         }
+
+        @media only screen and (min-width: 425px) and (max-width: 1024px) {
+          .flex-container {
+            width: 50%;
+          }
+        }
+
+        @media only screen and (min-width: 1024px) {
+          .flex-container {
+            width: 25%;
+          }
+        }
       `}</style>
-    </Layout>
+      </div>
   )
 }
 

@@ -5,6 +5,10 @@
   text-transform: uppercase;
   width: 80%;
 
+  @media only screen and (min-width: $tablet) {
+    width: 40%;
+  }
+
   .list-header {
     font-family: $secondary-font;
     font-size: 18px;
