@@ -110,7 +110,7 @@ export default function Product({ product, client, addVariantToCart }) {
 
           <AddToBag variant={selectedVariant} addVariantToCart={addVariantToCart} />
 
-          <Accordion>
+          <Accordion border={true} iconAlignment="right">
             <div label='Stylist Notes' isOpen>
               <p>
                 Prabal Gurung's form-fitting midi dress is crafted from ribbed-knit fabric

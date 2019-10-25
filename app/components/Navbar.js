@@ -3,6 +3,7 @@ import { useSpring } from "react-spring";
 import { useSwipeable } from "react-swipeable";
 import Link from 'next/link';
 
+import Accordion from './utils/accordion/Accordion';
 import HamburgerMenu from "./utils/hamburger-menu";
 import { 
   StyledNav, 
@@ -11,10 +12,12 @@ import {
   LinkWrapper,
   HamburgerWrapper, 
   HiddenNavWrapper, 
+  HiddenNavBackdrop,
   HiddenNavList,
   OpenNavOverlay,
   LeftIcons,
-  RightIcons
+  RightIcons,
+  HorizontalLine
 } from "../layouts/nav-styles";
 
 const Navbar = ({theme = "dark"}) => {
@@ -52,18 +55,59 @@ const Navbar = ({theme = "dark"}) => {
         }}
       />
       <LeftIcons>
+        {activeMenu && <HiddenNavBackdrop onClick={() => setActiveMenu(false)}/>}
         <HiddenNavWrapper
           style={openNavLeft}
           {...useSwipeable({ onSwipedLeft: () => setActiveMenu(false) })}
         >
-          <HiddenNavList>
-            <ul>
-              <li>Plans</li>
-              <li>Clothing</li>
-              <li>Accessories</li>
-              <li>Designer</li>
-            </ul>
-            <hr></hr>
+          <HiddenNavList>  
+            <Accordion border={false} iconAlignment="left">
+              <div label='Plans'>
+                <ul>
+                  <li>Plans</li>
+                </ul>
+              </div>
+              <div label='Clothing'>
+                <ul>
+                  <li>All</li>
+                  <li>Dresses</li>
+                  <li>Coats</li>
+                  <li>Skirts</li>
+                  <li>Tops</li>
+                </ul>
+              </div>
+              <div label='Accessories'>
+                <ul>
+                  <li>Accessories</li>
+                </ul>
+              </div>
+              <div label='Designer'>
+                <ul>
+                  <li>Designer</li>
+                </ul>
+              </div>
+            </Accordion>
+            <HorizontalLine />
+            <LinkWrapper>
+              <Link href="/" as="/" passHref>
+                <a>How It Works</a>
+              </Link>
+            </LinkWrapper>
+            <LinkWrapper>
+              <Link href="/" as="/" passHref>
+                <a>FAQ</a>
+              </Link>
+            </LinkWrapper>
+            <LinkWrapper>
+              <Link href="/" as="/" passHref>
+                <a>Get $50</a>
+              </Link>
+            </LinkWrapper>
+            <LinkWrapper>
+              <Link href="/" as="/" passHref>
+                <a>Sign In</a>
+              </Link>
+            </LinkWrapper>
           </HiddenNavList>
         </HiddenNavWrapper>
         <HamburgerMenu

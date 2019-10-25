@@ -88,6 +88,17 @@ export const HiddenNavWrapper = styled(animated.div)`
   }
 `;
 
+export const HiddenNavBackdrop = styled(animated.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 58px;
+`;
+
 export const LeftIcons = styled(animated.div)`
   flex: 1;
   display: flex;
@@ -116,7 +127,8 @@ export const HiddenNavList = styled.ul`
   float: left;
   text-align: left;
   padding: 0;
-  margin-top: 58px;
+  line-height: 28px;
+  font-size: 16px;
   li {
     display: block;
     a {
@@ -130,6 +142,12 @@ export const HiddenNavList = styled.ul`
       }
     }
   }
+`;
+
+export const HorizontalLine = styled.div`
+  border: 1px solid grey;
+  margin-left: 10px;
+  width: 50%;
 `;
 
 // export const SignInWrapper = styled.div`
@@ -176,6 +194,17 @@ export const OpenNavOverlay = styled(({ activeMenu, ...rest }) => (
 //   justify-content: center;
 //   flex-wrap: nowrap;
 // `;
+
+export const LinkWrapper = styled.div`
+  margin: 20px 10px;
+  a {
+    text-decoration: none;
+    color: black;
+    &:visited { color: black; }
+    &:hover { color: black; }
+    &:active { color: black; }
+  }
+`;
 
 export const LogoWrapper = styled.div`
   height: 100%;

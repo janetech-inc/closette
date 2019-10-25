@@ -1,17 +1,12 @@
+import './AccordionSection.scss';
+
 const AccordionSection = (props) => {
 
   return (
-    <div
-      style={{
-        borderTop: '1px solid black',
-        borderLeft: '1px solid black',
-        borderRight: '1px solid black',
-        padding: '5px 10px',
-      }}
-    >
+    <div className={props.border ? "AccordionSection border " : "AccordionSection"}>
       <div onClick={() => props.handleSectionClick(props.label)} style={{ cursor: 'pointer' }}>
         {props.label}
-        <div style={{ float: 'right' }}>
+        <div className="toggle-icon" style={{ float: props.iconAlignment }}>
           {!props.isOpen && <span>&#43;</span>}
           {props.isOpen && <span>&minus;</span>}
         </div>

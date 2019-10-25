@@ -1,5 +1,6 @@
 import React from "react";
 
+import './Accordion.scss';
 import AccordionSection from './AccordionSection';
 
 class Accordion extends React.Component {
@@ -44,18 +45,20 @@ class Accordion extends React.Component {
   render() {
     const {
       handleSectionClick,
-      props: { children },
+      props: { children, border, iconAlignment },
       state: { openSections },
     } = this;
 
     return (
-      <div style={{borderBottom: '1px solid black', margin: '20px 0'}}>
+      <div className={border ? "Accordion border" : "Accordion"}>
         {children.map(child => (
           <AccordionSection
             isOpen={!!openSections[child.props.label]}
             label={child.props.label}
             handleSectionClick={handleSectionClick}
             key={child.props.label}
+            border={border}
+            iconAlignment={iconAlignment}
           >
             {child.props.children}
           </AccordionSection>
