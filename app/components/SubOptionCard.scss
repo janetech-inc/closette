@@ -1,0 +1,32 @@
+@import "./global-styles/theme/theme";
+
+.SubOptionCard {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  width: 90%;
+
+  h2 {
+    margin: 0;
+  }
+
+  hr {
+    border: 1px solid black;
+    margin: 0;
+  }
+
+  ol {
+    list-style-position: inside;
+    margin: 0 0 30px 0;
+    padding: 0;
+  }
+
+  .enroll-btn {
+    background: white;
+    border: 1px solid black;
+    height: 40px;
+    width: 150px;
+    margin: 0 auto;
+  }
+}

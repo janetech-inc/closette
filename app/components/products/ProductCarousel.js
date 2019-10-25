@@ -516,11 +516,12 @@ class ProductCarousel extends React.Component {
   }
 
   render() {
+    const { titleText, url } = this.props;
     return (
       <div className="ProductCarousel">
         <div className="carousel-header">
-          <h3>You May Also Like</h3>
-          <Link href="/">
+          <h3>{titleText}</h3>
+          <Link href={url}>
             <a>All &#8594;</a>
           </Link>
         </div>

@@ -1,28 +1,51 @@
+import { useState, useEffect } from "react";
 import fetch from "isomorphic-unfetch";
 import Link from 'next/link';
+import "./products.scss";
 
 import { Container, Row, Col } from "react-awesome-styled-grid";
 
-const Products = props => (
+const Products = props => {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    isMounted && props.client.product.fetchAll().then((res) => {
+      setProducts(res);
+    }).catch(err => console.log(err));
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  return (
     <div>
       <h1>Products</h1>
-
-      <Container>
-        <Row>
-          {props.products.map(product => (
-            <Col className="Col product" key={product.id} noGutter xs={2} sm={2} md={2} lg={2} xl={2}>
-              <Link href="/products/[id]" as={`/products/${product.id}`}>
-                <img src={product.images[0].src} alt={`${product.title} product shot`}/>
-              </Link>
-              <div className="details">
-                <p className="vendor">{product.vendor}</p>
-                <p className="title">{product.title}</p>
-                <p className="price">${product.variants[0].price}</p>
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      {
+        products.length == 0 
+        ?
+        <div>Loading</div>
+        :
+        <Container>
+          <Row>
+            {products.map(product => (
+              <Col className="Col product" key={product.id} noGutter xs={2} sm={2} md={2} lg={2} xl={2}>
+                <Link href="/products/[id]" as={`/products/${product.id}`}>
+                  <img src={product.images[0].src} alt={`${product.title} product shot`}/>
+                </Link>
+                <div className="details">
+                  <p className="vendor">{product.vendor}</p>
+                  <p className="title">{product.title}</p>
+                  <p className="price">${product.variants[0].price}</p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      }
 
       <style jsx>{`
         .product {
@@ -51,6 +74,7 @@ const Products = props => (
         }
       `}</style>
     </div>
-);
+  );
+}
 
 export default Products;

@@ -1,0 +1,58 @@
+@import "../components/global-styles/theme/theme";
+
+.index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $core-font;
+
+  .top-img {
+    display: flex;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    .rent-the-look {
+      bottom: 10%;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+
+      button {
+        color: white;
+        background: transparent;
+        border: 1px solid white;
+        font-weight: bold;
+        height: 40px;
+        width: 200px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .value-prop {
+    background: $secondary;
+    height: 85px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sub-options-container {
+    background: $secondary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .sub-options-header {
+      font-family: $secondary-font;
+      text-align: center;
+      width: 260px;
+    }
+  }
+}

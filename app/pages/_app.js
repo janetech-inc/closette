@@ -22,7 +22,7 @@ class Closette extends App {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.state.client.checkout.create().then((res) => {
       this.setState({
         checkout: res,
