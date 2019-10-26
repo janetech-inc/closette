@@ -59,8 +59,9 @@ class Closette extends App {
 
   render() {
     const { Component, pageProps } = this.props
+    const { checkout } = this.state
     return (
-      <Layout>
+      <Layout checkout={checkout}>
         <Cart isCartOpen={this.state.isCartOpen} checkout={this.state.checkout} />
         <Component client={this.state.client} addVariantToCart={this.addVariantToCart} {...pageProps} />
       </Layout>

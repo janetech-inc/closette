@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSpring } from "react-spring";
 import { useSwipeable } from "react-swipeable";
 import Link from 'next/link';
@@ -20,9 +20,10 @@ import {
   HorizontalLine
 } from "../layouts/nav-styles";
 
-const Navbar = ({theme = "dark"}) => {
+const Navbar = ({theme = "dark", checkout}) => {
   const [activeHover, setActiveHover] = useState(false);
   const [activeMenu, setActiveMenu] = useState(false);
+  const [checkoutItems, setCheckoutItems] = useState(0);
 
   const hamburgerAnimation = useSpring({
     transform: activeMenu ? "translateX(0px)" : "translateX(64px)",
@@ -37,6 +38,14 @@ const Navbar = ({theme = "dark"}) => {
   const openNavBackground = useSpring({
     config: { duration: 500, clamp: true }
   });
+
+  useEffect(() => {
+    let count = 0;
+    checkout.lineItems && checkout.lineItems.forEach((lineItem) => {
+      count += lineItem.quantity;
+    });
+    setCheckoutItems(count);
+  }, [checkout.lineItems]);
 
   return (
     <StyledNav
@@ -130,8 +139,8 @@ const Navbar = ({theme = "dark"}) => {
         </LinkWrapper> */}
       </LogoWrapper>
       <RightIcons>
-        <p>Icon3</p>
-        <p>Icon4</p>
+        <span>Icon3</span>
+        <span className="cart-count">{checkoutItems}</span>
       </RightIcons>
     </StyledNav>
   )

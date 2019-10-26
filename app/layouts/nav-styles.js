@@ -112,6 +112,9 @@ export const RightIcons = styled(animated.div)`
   justify-content: flex-end;
   align-items: center;
   font-weight: bold;
+  .cart-count {
+    padding: 15px 24px;
+  }
 `;
 
 export const HiddenNavContent = styled.div`
