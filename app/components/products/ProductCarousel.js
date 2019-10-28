@@ -497,7 +497,7 @@ class ProductCarousel extends React.Component {
   }
 
   componentDidMount() {
-    let glide = new Glide('.glide', {
+    let glide = new Glide('.glide-product-carousel', {
       type: 'slider',
       perView: 3.5,
       breakpoints: {
@@ -508,7 +508,7 @@ class ProductCarousel extends React.Component {
       rewind: false
     })
     
-    glide.on('run.after', () => {
+    glide.on('run', () => {
       this.setState({ currentSlide: glide.index });
     })
     
@@ -526,7 +526,7 @@ class ProductCarousel extends React.Component {
           </Link>
         </div>
 
-        <div className="glide">
+        <div className="glide-product-carousel">
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
               {this.state.products.map((product, i) => {
