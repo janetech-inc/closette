@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useSpring } from "react-spring";
 import { useSwipeable } from "react-swipeable";
 import Link from 'next/link';
@@ -17,13 +17,16 @@ import {
   OpenNavOverlay,
   LeftIcons,
   RightIcons,
-  HorizontalLine
+  HorizontalLine,
+  SearchWrapper
 } from "../layouts/nav-styles";
+import Search from "./search/Search";
 
 const Navbar = ({theme = "dark", checkout}) => {
   const [activeHover, setActiveHover] = useState(false);
   const [activeMenu, setActiveMenu] = useState(false);
   const [checkoutItems, setCheckoutItems] = useState(0);
+  const [displaySearch, toggleSearch] = useState(false);
 
   const hamburgerAnimation = useSpring({
     transform: activeMenu ? "translateX(0px)" : "translateX(64px)",
@@ -125,7 +128,16 @@ const Navbar = ({theme = "dark", checkout}) => {
           activeMenu={activeMenu}
           callback={setActiveMenu}
         />
-        <p>Icon2</p>
+        <p onClick={() => toggleSearch(true)}>Search</p>
+        {displaySearch && 
+        <Fragment>
+          <HiddenNavBackdrop onClick={() => toggleSearch(false)}/>
+          <SearchWrapper displaySearch={displaySearch}>
+            <Search close={() => toggleSearch(false)}></Search>
+          </SearchWrapper>
+        </Fragment>
+      }
+        
       </LeftIcons>
       <LogoWrapper>
         <h1>CLOSETTE</h1>

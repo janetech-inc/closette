@@ -88,6 +88,18 @@ export const HiddenNavWrapper = styled(animated.div)`
   }
 `;
 
+export const SearchWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: ${props => (props.displaySearch ? "visible" : "hidden")};
+  width: 100%;
+  min-height: 200px;
+  background-color: #FFFFFF;
+  z-index: 2;
+`;
+
 export const HiddenNavBackdrop = styled(animated.div)`
   position: fixed;
   top: 0;

@@ -1,0 +1,42 @@
+@import "../global-styles/theme/theme";
+
+.Search {
+  position: relative;
+  width: 100%;
+
+  input {
+    border: none;
+    font-size: 24px;
+    font-family: $core-font;
+    margin-top: 50px;
+    outline: none;
+    text-align: center;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    width: 60%;
+  }
+
+  .black-line {
+    background-color: #000000;
+  }
+
+  .grey-line {
+    background-color: #979797;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    font-size: 20px;
+  }
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #5C5C5C;
+  font-size: 14px;
+  opacity: 1; /* Firefox */
+}
