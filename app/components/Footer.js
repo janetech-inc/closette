@@ -10,6 +10,12 @@ const Footer = () => (
       <a className="link">Returns</a>
       <a className="link">Terms</a>
     </div>
+
+    <div className="social-icons">
+      <div className="icon fb">FB</div>
+      <div className="icon ig">IG</div>
+      <div className="icon twitter">TWT</div>
+    </div>
   </div>
 );
 

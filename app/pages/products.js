@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import fetch from "isomorphic-unfetch";
 import Link from 'next/link';
-import "./products.scss";
 
 import { Container, Row, Col } from "react-awesome-styled-grid";
 

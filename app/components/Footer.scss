@@ -21,4 +21,18 @@
       margin: 5px 10px;
     }
   }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    .icon {
+      border: 1px solid $footer-font-color;
+      text-align: center;
+      margin: 0 10px;
+      height: 50px;
+      width: 50px;
+    }
+  }
 }
