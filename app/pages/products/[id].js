@@ -1,6 +1,7 @@
 import { useState, Fragment } from "react";
 import Client from "shopify-buy";
 import { useSwipeable, Swipeable } from 'react-swipeable';
+import fetch from "isomorphic-unfetch";
 
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
