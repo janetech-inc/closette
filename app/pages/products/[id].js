@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useState, Fragment } from "react";
 import Client from "shopify-buy";
 import { useSwipeable, Swipeable } from 'react-swipeable';
@@ -78,7 +77,7 @@ export default function Product({ product, client, addVariantToCart }) {
   
   return (
     <Fragment>
-      <Header></Header>
+      <Header slug="Products" category={product.productType} productTitle={product.title}></Header>
       <div className="product-details">
         <Swipeable 
           onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
@@ -173,7 +172,7 @@ export default function Product({ product, client, addVariantToCart }) {
             display: block;
             max-width: 100%;
             max-height: 500px;
-            padding: 20px 0;
+            padding-bottom: 20px;
           }
           
           .divider-line {

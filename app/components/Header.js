@@ -1,8 +1,10 @@
 import './Header.scss';
 
-const Header = () => (
+const Header = ({slug, category, productTitle}) => (
   <div className="Header">
-    HEADER
+    <span className="slug">{slug} / </span>
+    <span className="category">{category} / </span>
+    <span className="productTitle">{productTitle}</span>
   </div>
 )
 
