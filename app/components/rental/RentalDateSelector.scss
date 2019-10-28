@@ -122,4 +122,22 @@
       background: linear-gradient(to bottom right, $secondary 50%, #959595 50%);
     }
   }
+
+  hr {
+    background-color: #000000;
+    border: none;
+    margin: 20px 0;
+    height: 1px;
+    width: 100%;
+  }
+
+  .save-dates-btn {
+    background: #000000;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 40px;
+    width: 100%;
+  }
 }

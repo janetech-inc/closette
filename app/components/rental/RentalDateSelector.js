@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import DatePicker, { CalendarContainer } from "react-datepicker";
 import { addDays, subDays, toDate, format } from 'date-fns'
 
@@ -6,6 +6,7 @@ import './RentalDateSelector.scss';
 import Modal from '../utils/modal/Modal';
 
 const RentalDateSelector = ({ rentalPeriod }) => {
+  const modalRef = useRef(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(addDays(startDate, rentalPeriod - 1));
 
@@ -32,7 +33,10 @@ const RentalDateSelector = ({ rentalPeriod }) => {
     <div className="RentalDateSelector">
       <div className="left"></div>
       <div className="center">
-        <Modal {...modalProps} triggerText={`${format(startDate, 'MM-dd')} - ${format(endDate, 'MM-dd')}`}>
+        <Modal 
+          ref={modalRef} {...modalProps} 
+          triggerText={`${format(startDate, 'MM-dd')} - ${format(endDate, 'MM-dd')}`}
+        >
           <p className="datepicker-header">Your Rental Dates</p>
           <DatePicker
             selected={startDate}
@@ -66,6 +70,8 @@ const RentalDateSelector = ({ rentalPeriod }) => {
               <div className="symbol" id="drop-at-ups-symbol"></div>
               <p className="text">Drop at UPS by noon</p>
             </div>
+            <hr></hr>
+            <button onClick={() => modalRef.current.close()} className="save-dates-btn">Save</button>
           </div>
         </Modal>
       </div>
