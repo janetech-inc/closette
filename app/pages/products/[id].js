@@ -1,6 +1,6 @@
-import { useState, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import Client from "shopify-buy";
-import { useSwipeable, Swipeable } from 'react-swipeable';
+import Glide from '@glidejs/glide'
 import fetch from "isomorphic-unfetch";
 
 import Layout from '../../components/Layout';
@@ -35,6 +35,20 @@ export default function Product({ product, client, addVariantToCart }) {
   });
   const [rentalPeriod, setRentalPeriod] = useState(4);
   const [buySelected, setBuyOption] = useState(false);
+
+  useEffect(() => {
+    let glide = new Glide('.glide', {
+      type: 'slider',
+      perView: 1,
+      rewind: false
+    })
+    
+    glide.on('run', () => {
+      handleImageSwipe(glide.index);
+    })
+    
+    glide.mount();
+  }, []);
 
   const variantSelectors = product.options.map((option) => {
     return (
@@ -80,11 +94,20 @@ export default function Product({ product, client, addVariantToCart }) {
     <Fragment>
       <Header slug="Products" category={product.productType} productTitle={product.title}></Header>
       <div className="product-details">
-        <Swipeable 
-          onSwipedLeft={() => (imageState.currentImage < imageState.imageCount - 1) && handleImageSwipe(1)} 
-          onSwipedRight={() => (imageState.currentImage > 0) && handleImageSwipe(-1)} >
-          <img src={product.images[imageState.currentImage].src} alt={`${product.title} product shot`}/>
-        </Swipeable>
+
+        <div className="glide">
+          <div className="glide__track" data-glide-el="track">
+            <ul className="glide__slides">
+              { product.images.map((image) => {
+                return (
+                  <li key={image.id}>
+                    <img src={image.src} alt={`${product.title} product shot`} className="slide"/>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
 
         <ProgressBar percentage={((imageState.currentImage + 1)/imageState.imageCount) * 100}></ProgressBar>
       
@@ -169,13 +192,18 @@ export default function Product({ product, client, addVariantToCart }) {
             width: 75%;
           }
 
-          img {
+          img.slide {
             display: block;
             max-width: 100%;
             max-height: 500px;
+            margin: 0 auto;
             padding-bottom: 20px;
           }
           
+          .glide__slide--active {
+            z-index: 1;
+          }
+
           .divider-line {
             height: 1px;
             width: 100%;
@@ -184,7 +212,7 @@ export default function Product({ product, client, addVariantToCart }) {
           }
           
           @media only screen and (max-width: 425px) {
-            img {
+            img.slide {
               width: 100%;
             }
 
