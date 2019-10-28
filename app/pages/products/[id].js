@@ -194,7 +194,7 @@ export default function Product({ product, client, addVariantToCart }) {
 
           img.slide {
             display: block;
-            max-width: 100%;
+            max-width: 70%;
             max-height: 500px;
             margin: 0 auto;
             padding-bottom: 20px;
@@ -214,6 +214,7 @@ export default function Product({ product, client, addVariantToCart }) {
           @media only screen and (max-width: 425px) {
             img.slide {
               width: 100%;
+              max-width: 100%;
             }
 
             .flex-container {
