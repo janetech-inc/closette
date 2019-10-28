@@ -58,14 +58,68 @@
 
 .react-datepicker {
   border-radius: 0 !important;
+  border: none !important;
+
+  .react-datepicker__header {
+    border: none !important;
+    background-color: white;
+    font-family: $core-font;
+
+    .react-datepicker__day-name {
+      margin: 0;
+      display: table-cell;
+      vertical-align: bottom;
+    }
+  }
+
+  .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .react-datepicker__navigation--next {
+    border: solid black !important;
+    border-width: 0 0.5px 0.5px 0 !important;
+    display: inline-block !important;
+    padding: 3px !important;
+    transform: rotate(-45deg) !important;
+    -webkit-transform: rotate(-45deg) !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .react-datepicker__navigation--previous {
+    border: solid black !important;
+    border-width: 0 0.5px 0.5px 0 !important;
+    display: inline-block !important;
+    padding: 3px !important;
+    transform: rotate(135deg) !important;
+    -webkit-transform: rotate(135deg) !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
 
   .react-datepicker__day {
     border-radius: 0 !important;
+    border-color: #DEDEDE;
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .react-datepicker__day--disabled {
+    background-color: #DEDEDE;
+    color: #979797;
   }
 
   .react-datepicker__day--in-range, .react-datepicker__day--in-range.react-datepicker__day--in-selecting-range {
     background: $secondary;
     color: $primary;
+  }
+
+  .react-datepicker__month {
+    border: 0.5px solid #DEDEDE !important;
+    margin: 0;
   }
 
   .react-datepicker__month--selecting-range .react-datepicker__day--in-range {
