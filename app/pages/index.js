@@ -1,5 +1,4 @@
 import "./index.scss";
-import Products from './products';
 import ProductCarousel from '../components/products/ProductCarousel';
 import RentalInfoSnippet from "../components/rental/RentalInfoSnippet";
 import SubOptionCard from "../components/SubOptionCard";

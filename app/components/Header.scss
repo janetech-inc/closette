@@ -7,6 +7,13 @@
     color: #5C5C5C;
   }
 
+  a {
+    text-decoration: none;
+    &:visited { color: #5C5C5C; }
+    &:hover { color: #5C5C5C; }
+    &:active { color: #5C5C5C; }
+  }
+
   .productTitle {
     color: black;
     font-weight: bold;

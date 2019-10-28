@@ -1,8 +1,11 @@
+import Link from 'next/link';
 import './Header.scss';
 
 const Header = ({slug, category, productTitle}) => (
   <div className="Header">
-    <span className="slug">{slug} / </span>
+    <Link href={`/${slug.toLowerCase()}`}>
+      <a>{slug} / </a>
+    </Link>
     <span className="category">{category} / </span>
     <span className="productTitle">{productTitle}</span>
   </div>
