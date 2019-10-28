@@ -2,6 +2,7 @@ import { useState, useEffect, Fragment } from "react";
 import { useSpring } from "react-spring";
 import { useSwipeable } from "react-swipeable";
 import Link from 'next/link';
+import Router from 'next/router'
 
 import Accordion from './utils/accordion/Accordion';
 import HamburgerMenu from "./utils/hamburger-menu";
@@ -49,6 +50,10 @@ const Navbar = ({theme = "dark", checkout}) => {
     });
     setCheckoutItems(count);
   }, [checkout.lineItems]);
+
+  const handleRouteChange = () => setActiveMenu(false);
+
+  Router.events.on('routeChangeStart', handleRouteChange);
 
   return (
     <StyledNav
