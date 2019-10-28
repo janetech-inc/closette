@@ -88,6 +88,18 @@ export const HiddenNavWrapper = styled(animated.div)`
   }
 `;
 
+export const HiddenCheckoutPreviewWrapper = styled(animated.div)`
+  background-color: #FFFFFF;
+  position: absolute;
+  height: 100vh;
+  width: 50%;
+  max-width: 400px;
+  margin-top: 58px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+`;
+
 export const SearchWrapper = styled.div`
   position: absolute;
   display: flex;
@@ -159,6 +171,30 @@ export const HiddenNavList = styled.ul`
   }
 `;
 
+export const HiddenCheckoutPreview = styled.ul`
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  float: left;
+  text-align: left;
+  padding: 0;
+  line-height: 28px;
+  font-size: 16px;
+  li {
+    display: block;
+    a {
+      display: inline-block;
+      padding: 6px 0;
+      margin: 6px 0;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.5s;
+      &:hover {
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+`;
+
 export const HorizontalLine = styled.div`
   border: 1px solid grey;
   margin-left: 10px;
@@ -186,12 +222,12 @@ export const PageName = styled.span`
   transition: color 0.5s ease;
 `;
 
-export const OpenNavOverlay = styled(({ activeMenu, ...rest }) => (
+export const OpenNavOverlay = styled(({ activeMenu, showCheckoutPreview, ...rest }) => (
   <animated.div {...rest} {...rest.swipe} />
 ))`
   position: fixed;
   display: block;
-  visibility: ${props => (props.activeMenu ? "visible" : "hidden")};
+  visibility: ${props => ((props.activeMenu || props.showCheckoutPreview) ? "visible" : "hidden")};
   left: 0;
   top: 0;
   width: 100%;

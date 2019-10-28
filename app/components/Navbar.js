@@ -19,15 +19,19 @@ import {
   LeftIcons,
   RightIcons,
   HorizontalLine,
-  SearchWrapper
+  SearchWrapper,
+  HiddenCheckoutPreviewWrapper,
+  HiddenCheckoutPreview
 } from "../layouts/nav-styles";
 import Search from "./search/Search";
+import CheckoutPreview from "./checkout/CheckoutPreview";
 
 const Navbar = ({theme = "dark", checkout}) => {
   const [activeHover, setActiveHover] = useState(false);
   const [activeMenu, setActiveMenu] = useState(false);
   const [checkoutItems, setCheckoutItems] = useState(0);
   const [displaySearch, toggleSearch] = useState(false);
+  const [showCheckoutPreview, toggleCheckoutPreview] = useState(false);
 
   const hamburgerAnimation = useSpring({
     transform: activeMenu ? "translateX(0px)" : "translateX(64px)",
@@ -37,6 +41,11 @@ const Navbar = ({theme = "dark", checkout}) => {
   const openNavLeft = useSpring({
     transform: activeMenu ? "translateX(0%)" : "translateX(-100%)",
     WebkitTransform: activeMenu ? "translateX(0%)" : "translateX(-100%)"
+  });
+
+  const openNavRight = useSpring({
+    transform: showCheckoutPreview ? "translateX(0%)" : "translateX(100%)",
+    WebkitTransform: showCheckoutPreview ? "translateX(0%)" : "translateX(100%)"
   });
   
   const openNavBackground = useSpring({
@@ -54,7 +63,7 @@ const Navbar = ({theme = "dark", checkout}) => {
   const handleRouteChange = () => setActiveMenu(false);
 
   Router.events.on('routeChangeStart', handleRouteChange);
-
+  
   return (
     <StyledNav
       dark={theme === "dark"}
@@ -65,6 +74,7 @@ const Navbar = ({theme = "dark", checkout}) => {
     >
       <OpenNavOverlay
         activeMenu={activeMenu}
+        showCheckoutPreview={showCheckoutPreview}
         style={openNavBackground}
         onClick={() => setActiveMenu(false)}
         swipe={{
@@ -157,8 +167,14 @@ const Navbar = ({theme = "dark", checkout}) => {
       </LogoWrapper>
       <RightIcons>
         <span>Icon3</span>
-        <span className="cart-count">{checkoutItems}</span>
-      </RightIcons>
+        <span onMouseEnter={() => checkoutItems > 0 && toggleCheckoutPreview(true)} className="cart-count">{checkoutItems}</span>
+        {showCheckoutPreview && <HiddenNavBackdrop onClick={() => toggleCheckoutPreview(false)}/>}
+        <HiddenCheckoutPreviewWrapper style={openNavRight}>
+          <HiddenCheckoutPreview>
+            <CheckoutPreview checkout={checkout} />
+          </HiddenCheckoutPreview>
+       </HiddenCheckoutPreviewWrapper>
+      </RightIcons>  
     </StyledNav>
   )
 };
