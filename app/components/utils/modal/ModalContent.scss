@@ -38,22 +38,29 @@
       right: 0;
       padding: .5em;
       line-height: 1;
-      background: #f6f6f7;
+      background: white;
       border: 0;
       box-shadow: 0;
       cursor: pointer;
 
-      .u-hide-visually {
-        border: 0 !important;
-        clip: rect(0 0 0 0) !important;
-        height: 1px !important;
-        margin: -1px !important;
-        overflow: hidden !important;
-        padding: 0 !important;
-        position: absolute !important;
-        width: 1px !important;
-        white-space: nowrap !important;
+      .close-icon {
+        background: white;
+        border: none;
+        font-size: 20px;
+        outline: none;
       }
+
+      // .u-hide-visually {
+      //   border: 0 !important;
+      //   clip: rect(0 0 0 0) !important;
+      //   height: 1px !important;
+      //   margin: -1px !important;
+      //   overflow: hidden !important;
+      //   padding: 0 !important;
+      //   position: absolute !important;
+      //   width: 1px !important;
+      //   white-space: nowrap !important;
+      // }
     }
 
     .modal-body {

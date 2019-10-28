@@ -26,7 +26,8 @@ const ModalContent = ({
       >
         <div className="modal-content" ref={modalRef}>
           <button className="modal-close" aria-labelledby="close-modal" onClick={close}>
-            <span id="close-modal" className="u-hide-visually">Close x</span>
+            {/* <span id="close-modal" className="u-hide-visually">Close x</span> */}
+            <button className="close-icon">&#10005;</button>
           </button>
           <div className="modal-body">
             {content}
