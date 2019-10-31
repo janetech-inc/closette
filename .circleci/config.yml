@@ -9,7 +9,7 @@ orbs:
   aws-ecs: circleci/aws-ecs@0.0.8
 
 defaults: &defaults
-  working_directory: ~/buyer-xp
+  working_directory: ~/closette
   docker:
     - image: circleci/node:10-stretch
 
@@ -33,7 +33,9 @@ deploy: &deploy
         cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster-${AWS_RESOURCE_NAME_SUFFIX}"
         container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service-${AWS_RESOURCE_NAME_SUFFIX},image-and-tag=${AWS_ECR_ACCOUNT_URL}/${AWS_RESOURCE_NAME_PREFIX}-${AWS_RESOURCE_NAME_SUFFIX}:${CIRCLE_SHA1}"
         verify-revision-is-deployed: true
-    - successful_deployment_check
+    - run:
+        name: Test the deployment
+        command: curl -s --retry 10 $BASE_URL | grep "theCXN"
 
 jobs:
   setup_environment:
@@ -102,10 +104,3 @@ workflows:
                 - production
           requires:
             - setup_environment
-
-commands:
-  successful_deployment_check:
-    steps:
-      - run:
-          name: Test the deployment
-          command: bash ./deploy/check_deployment_success.sh
